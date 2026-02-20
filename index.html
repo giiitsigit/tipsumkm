@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips UMKM — Portal UMKM Lokal Indonesia</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --orange:#F59E0B;
+  --orange-dark:#D97706;
+  --orange-pale:#FFFBEB;
+  --orange-soft:#FEF3C7;
+  --black:#0D0D0D;
+  --dark:#111318;
+  --dark2:#1A1D24;
+  --dark3:#22262F;
+  --g1:#374151;
+  --g2:#6B7280;
+  --g3:#9CA3AF;
+  --g4:#D1D5DB;
+  --g5:#E5E7EB;
+  --g6:#F3F4F6;
+  --white:#FFFFFF;
+  --r:14px; --r2:20px; --r3:28px; --rf:9999px;
+}
+body{font-family:'Manrope',sans-serif;background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--g5);
+  transition:all 0.3s;
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo svg{width:30px;height:30px}
+.logo-txt{font-size:16px;font-weight:800;color:var(--black);letter-spacing:-0.4px}
+.logo-txt span{color:var(--orange)}
+.nav-mid{display:flex;gap:2px}
+.nl{padding:7px 15px;border-radius:var(--rf);font-size:14px;font-weight:500;color:var(--g2);text-decoration:none;transition:all 0.15s}
+.nl:hover{color:var(--black);background:var(--g6)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.btn-outline{padding:8px 18px;border-radius:var(--rf);font-size:14px;font-weight:600;color:var(--g1);background:transparent;border:1.5px solid var(--g4);cursor:pointer;font-family:inherit;text-decoration:none;transition:all 0.15s;display:inline-flex;align-items:center}
+.btn-outline:hover{border-color:var(--g2);color:var(--black)}
+.btn-cta{padding:9px 20px;border-radius:var(--rf);font-size:14px;font-weight:700;color:var(--white);background:var(--orange);border:none;cursor:pointer;font-family:inherit;text-decoration:none;transition:all 0.15s;display:inline-flex;align-items:center;gap:6px}
+.btn-cta:hover{background:var(--orange-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,158,11,0.35)}
+
+/* ── HERO ── */
+.hero{
+  background:var(--dark);
+  padding:140px 48px 100px;
+  position:relative;overflow:hidden;
+  min-height:100vh;display:flex;align-items:center;
+}
+.hero-glow{
+  position:absolute;top:-200px;right:-100px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,158,11,0.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;bottom:-150px;left:-50px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,158,11,0.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;position:relative;z-index:1}
+
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:var(--rf);
+  background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);
+  font-size:12.5px;font-weight:600;color:var(--orange);
+  letter-spacing:0.02em;margin-bottom:24px;
+  animation:fadeUp 0.5s ease both;
+}
+.blink{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(245,158,11,0.4)}50%{opacity:.7;box-shadow:0 0 0 5px rgba(245,158,11,0)}}
+
+h1.hero-h{
+  font-size:clamp(40px,5vw,64px);font-weight:800;
+  line-height:1.06;letter-spacing:-0.04em;
+  color:var(--white);margin-bottom:22px;
+  animation:fadeUp 0.5s 0.08s ease both;
+}
+h1.hero-h .hi{color:var(--orange)}
+
+.hero-desc{
+  font-size:17px;line-height:1.72;color:rgba(255,255,255,0.55);
+  max-width:440px;margin-bottom:40px;
+  animation:fadeUp 0.5s 0.16s ease both;
+}
+
+.hero-btns{display:flex;gap:12px;margin-bottom:40px;animation:fadeUp 0.5s 0.24s ease both}
+
+.btn-hero{
+  padding:14px 28px;border-radius:var(--rf);font-size:15px;font-weight:700;
+  background:var(--orange);color:var(--black);border:none;
+  cursor:pointer;font-family:inherit;text-decoration:none;
+  transition:all 0.2s;display:inline-flex;align-items:center;gap:7px;
+}
+.btn-hero:hover{background:var(--orange-dark);color:var(--white);transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,0.35)}
+
+.btn-hero-ghost{
+  padding:14px 26px;border-radius:var(--rf);font-size:15px;font-weight:600;
+  background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.8);
+  border:1px solid rgba(255,255,255,0.12);
+  cursor:pointer;font-family:inherit;text-decoration:none;
+  transition:all 0.2s;display:inline-flex;align-items:center;gap:7px;
+}
+.btn-hero-ghost:hover{background:rgba(255,255,255,0.12);color:var(--white)}
+
+.proof{display:flex;align-items:center;gap:14px;animation:fadeUp 0.5s 0.32s ease both}
+.avs{display:flex}
+.av{width:30px;height:30px;border-radius:50%;background:var(--dark3);border:2px solid var(--dark);font-size:14px;display:flex;align-items:center;justify-content:center;margin-left:-8px}
+.av:first-child{margin-left:0}
+.proof-t{font-size:13px;color:rgba(255,255,255,0.4)}
+.proof-t strong{color:var(--white);font-weight:700}
+
+/* Hero cards right */
+.hero-right{display:flex;flex-direction:column;gap:14px;animation:fadeUp 0.6s 0.2s ease both}
+.hc{background:var(--dark2);border:1px solid rgba(255,255,255,0.07);border-radius:var(--r2);padding:20px 22px;transition:all 0.2s}
+.hc:hover{border-color:rgba(245,158,11,0.3);transform:translateX(-4px)}
+.hc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.hc-icon{width:38px;height:38px;border-radius:var(--r);background:var(--dark3);display:flex;align-items:center;justify-content:center;font-size:18px}
+.hc-tag{padding:3px 10px;border-radius:var(--rf);font-size:11px;font-weight:700;background:rgba(245,158,11,0.15);color:var(--orange)}
+.hc h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px}
+.hc p{font-size:12.5px;color:rgba(255,255,255,0.4);line-height:1.5}
+.hc-meta{display:flex;gap:10px;margin-top:10px;font-size:12px;color:rgba(255,255,255,0.3)}
+
+.stats-row{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:var(--r2);padding:18px 22px;display:flex;gap:0}
+.si{flex:1;text-align:center}
+.si:not(:last-child){border-right:1px solid rgba(255,255,255,0.06)}
+.sn{font-size:24px;font-weight:800;color:var(--white);letter-spacing:-0.04em;line-height:1}
+.sn span{color:var(--orange)}
+.sl{font-size:11px;color:rgba(255,255,255,0.3);margin-top:4px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION COMMON ── */
+.wrap{max-width:1080px;margin:0 auto;padding:88px 48px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.sh2{font-size:clamp(28px,3.2vw,42px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--black);margin-bottom:12px}
+.sh2-white{color:var(--white)}
+.sdesc{font-size:16px;color:var(--g2);line-height:1.75;max-width:460px;margin-bottom:48px}
+.sdesc-white{color:rgba(255,255,255,0.5)}
+hr.divider{border:none;border-top:1px solid var(--g5);max-width:1080px;margin:0 auto}
+
+/* ── DIREKTORI ── */
+.search-row{display:flex;gap:10px;max-width:520px;margin-bottom:22px}
+.si-input{flex:1;height:46px;padding:0 20px;border:1.5px solid var(--g5);border-radius:var(--rf);font-family:inherit;font-size:14px;color:var(--black);outline:none;transition:border-color 0.15s;background:var(--white)}
+.si-input:focus{border-color:var(--black)}
+.si-input::placeholder{color:var(--g3)}
+.si-btn{height:46px;padding:0 22px;background:var(--black);color:var(--white);border:none;border-radius:var(--rf);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.15s;white-space:nowrap}
+.si-btn:hover{background:var(--g1)}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.chip{padding:8px 18px;border-radius:var(--rf);border:1.5px solid var(--g5);background:var(--white);font-family:inherit;font-size:13.5px;font-weight:500;color:var(--g2);cursor:pointer;transition:all 0.15s}
+.chip:hover{border-color:var(--g3);color:var(--black)}
+.chip.on{background:var(--black);border-color:var(--black);color:var(--white)}
+
+.ugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ucard{background:var(--white);border:1.5px solid var(--g5);border-radius:var(--r2);padding:22px;transition:all 0.22s;cursor:pointer}
+.ucard:hover{border-color:var(--orange);box-shadow:0 8px 32px rgba(245,158,11,0.1);transform:translateY(-4px)}
+.ucard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.u-ico{width:44px;height:44px;border-radius:var(--r);background:var(--g6);display:flex;align-items:center;justify-content:center;font-size:22px}
+.u-stars{font-size:12px;font-weight:700;color:var(--g1);background:var(--g6);padding:4px 10px;border-radius:var(--rf)}
+.u-cat{font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--g3);margin-bottom:5px}
+.u-name{font-size:15.5px;font-weight:800;color:var(--black);letter-spacing:-0.2px;margin-bottom:7px}
+.u-desc{font-size:13px;color:var(--g2);line-height:1.55;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ucard-bot{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1.5px solid var(--g5)}
+.u-loc{font-size:12px;color:var(--g3)}
+.u-link{font-size:13px;font-weight:700;color:var(--orange-dark);text-decoration:none;display:flex;align-items:center;gap:3px;transition:gap 0.15s}
+.u-link:hover{gap:6px}
+
+.dir-cta{margin-top:32px;text-align:center}
+
+/* ── TIPS ── */
+.tips-section{background:var(--g6)}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tfeat{
+  grid-column:1/-1;background:var(--dark);border-radius:var(--r3);
+  padding:40px 44px;display:grid;grid-template-columns:1fr auto;
+  gap:32px;align-items:center;cursor:pointer;transition:transform 0.2s;
+  text-decoration:none;border:1px solid rgba(255,255,255,0.05);
+}
+.tfeat:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.25)}
+.tf-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:var(--rf);background:rgba(245,158,11,0.15);font-size:12px;font-weight:700;color:var(--orange);margin-bottom:16px}
+.tfeat h3{font-size:23px;font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.2;margin-bottom:10px}
+.tfeat p{font-size:14.5px;color:rgba(255,255,255,0.45);line-height:1.7}
+.tf-em{font-size:64px;opacity:.85}
+
+.tcard{background:var(--white);border:1.5px solid var(--g5);border-radius:var(--r2);padding:26px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:block}
+.tcard:hover{border-color:var(--orange);box-shadow:0 8px 32px rgba(245,158,11,0.08);transform:translateY(-3px)}
+.tc-em{font-size:28px;margin-bottom:14px}
+.tc-tag{font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--g3);margin-bottom:8px}
+.tcard h3{font-size:15px;font-weight:800;color:var(--black);letter-spacing:-0.2px;line-height:1.35;margin-bottom:8px}
+.tcard p{font-size:13.5px;color:var(--g2);line-height:1.6;margin-bottom:14px}
+.tc-meta{font-size:12px;color:var(--g3);display:flex;gap:12px}
+
+/* Drawer */
+.drawer{max-width:700px;margin:24px auto 0;background:var(--white);border:1.5px solid var(--g5);border-radius:var(--r2);overflow:hidden;max-height:0;opacity:0;transition:max-height 0.45s ease,opacity 0.3s ease}
+.drawer.open{max-height:900px;opacity:1}
+.drawer-pad{padding:40px}
+.drawer-pad h2{font-size:22px;font-weight:800;letter-spacing:-0.03em;line-height:1.2;color:var(--black);margin-bottom:6px}
+.drawer-by{font-size:12.5px;color:var(--g3);margin-bottom:24px;padding-bottom:22px;border-bottom:1.5px solid var(--g5)}
+.drawer-body p{font-size:15px;line-height:1.8;color:var(--g1);margin-bottom:14px}
+.step{border-left:3px solid var(--orange);padding:13px 18px;background:var(--g6);border-radius:0 var(--r) var(--r) 0;margin:14px 0}
+.step strong{display:block;font-size:13px;font-weight:700;color:var(--black);margin-bottom:3px}
+.step span{font-size:13.5px;color:var(--g2);line-height:1.6}
+.notebox{background:var(--orange-soft);border-radius:var(--r);padding:14px 18px;font-size:13.5px;color:#92400E;margin:18px 0;line-height:1.65}
+
+/* ── FEATURE SPLIT (Tribelio style) ── */
+.feat-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.feat-split.rev{direction:rtl}
+.feat-split.rev>*{direction:ltr}
+
+.feat-txt .eyebrow{margin-bottom:14px}
+.feat-txt .sh2{margin-bottom:14px}
+.feat-txt p{font-size:16px;color:var(--g2);line-height:1.75;margin-bottom:32px}
+.feat-list{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.feat-item{display:flex;gap:12px;align-items:flex-start}
+.feat-dot{width:22px;height:22px;background:var(--orange-soft);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:11px}
+.feat-item-txt strong{display:block;font-size:14px;font-weight:700;color:var(--black);margin-bottom:2px}
+.feat-item-txt span{font-size:13.5px;color:var(--g2);line-height:1.5}
+
+.btn-dark{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--black);color:var(--white);border-radius:var(--rf);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:all 0.15s}
+.btn-dark:hover{background:var(--g1);transform:translateY(-1px)}
+
+/* Feature visual panel */
+.feat-visual{background:var(--g6);border-radius:var(--r3);padding:32px;min-height:360px;display:flex;flex-direction:column;gap:12px}
+.feat-visual.dark{background:var(--dark);padding:32px}
+
+/* Testimonial cards */
+.testis{display:flex;flex-direction:column;gap:12px}
+.testi{background:var(--white);border:1.5px solid var(--g5);border-radius:var(--r2);padding:22px;transition:all 0.2s}
+.testi:hover{border-color:var(--g4);box-shadow:0 6px 20px rgba(0,0,0,0.05);transform:translateY(-2px)}
+.testi-head{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.tav{width:40px;height:40px;border-radius:50%;background:var(--g6);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.t-name{font-size:14px;font-weight:700;color:var(--black)}
+.t-role{font-size:12px;color:var(--g3);margin-top:1px}
+.t-quote{font-size:13.5px;color:var(--g1);line-height:1.65}
+
+/* ── DARK KOMUNITAS ── */
+.dark-section{background:var(--dark)}
+
+/* ── CTA BANNER ── */
+.cta-banner{
+  background:var(--orange);border-radius:var(--r3);
+  padding:56px 64px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:32px;flex-wrap:wrap;
+  margin:0 auto;max-width:1080px;
+}
+.cta-banner h2{font-size:clamp(22px,2.5vw,32px);font-weight:800;letter-spacing:-0.03em;color:var(--black);line-height:1.2}
+.cta-banner p{font-size:15px;color:rgba(0,0,0,0.6);margin-top:8px;max-width:380px;line-height:1.6}
+.btn-dark-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--black);color:var(--white);border-radius:var(--rf);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:all 0.2s;white-space:nowrap}
+.btn-dark-cta:hover{background:var(--dark2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+
+/* ── FORM ── */
+.form-section{background:var(--g6)}
+.form-card{background:var(--white);border:1.5px solid var(--g5);border-radius:var(--r3);padding:40px;max-width:620px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{display:flex;flex-direction:column;gap:7px;margin-bottom:0}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:13px;font-weight:700;color:var(--g1)}
+.fg input,.fg select,.fg textarea{
+  height:44px;padding:0 16px;
+  border:1.5px solid var(--g4);border-radius:var(--r);
+  font-family:inherit;font-size:14px;color:var(--black);
+  background:var(--white);outline:none;transition:border-color 0.15s;appearance:none;
+}
+.fg textarea{height:90px;padding:12px 16px;resize:vertical;line-height:1.5}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--black)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--g3)}
+.btn-submit{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--orange);color:var(--black);border:none;border-radius:var(--rf);font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;transition:all 0.15s;margin-top:16px}
+.btn-submit:hover{background:var(--orange-dark);color:var(--white);transform:translateY(-1px)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark)}
+.foot{max-width:1080px;margin:0 auto;padding:64px 48px 40px}
+.foot-top{display:grid;grid-template-columns:260px 1fr 1fr 1fr;gap:52px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.foot-brand .logo-txt{font-size:18px;display:block;margin-bottom:14px;color:var(--white)}
+.foot-brand .logo-txt span{color:var(--orange)}
+.foot-brand p{font-size:13.5px;color:rgba(255,255,255,0.35);line-height:1.75;max-width:210px}
+.fcol h5{font-size:11.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:18px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fcol a{font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.15s}
+.fcol a:hover{color:var(--white)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:30px;flex-wrap:wrap;gap:12px}
+.foot-bot span{font-size:13px;color:rgba(255,255,255,0.25)}
+.socs{display:flex;gap:8px}
+.soc{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:15px;transition:background 0.15s}
+.soc:hover{background:rgba(255,255,255,0.12)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:940px){
+  nav{padding:0 20px}
+  .nav-mid{display:none}
+  .hero{padding:110px 20px 70px}
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-right{display:none}
+  .wrap{padding:64px 20px}
+  .ugrid{grid-template-columns:1fr 1fr}
+  .tgrid{grid-template-columns:1fr}
+  .tfeat{grid-template-columns:1fr}
+  .tf-em{display:none}
+  .feat-split{grid-template-columns:1fr;gap:40px}
+  .feat-split.rev{direction:ltr}
+  .cta-banner{padding:36px 28px;flex-direction:column;align-items:flex-start}
+  .frow{grid-template-columns:1fr}
+  .fg.full{grid-column:1}
+  .form-card{padding:24px}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .foot{padding:48px 20px 32px}
+}
+@media(max-width:560px){
+  .ugrid{grid-template-columns:1fr}
+  h1.hero-h{font-size:36px}
+  .foot-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 30 28" fill="none">
+      <path d="M15 2L29 26H1L15 2Z" fill="#F59E0B"/>
+      <path d="M15 9L26 26H4L15 9Z" fill="white"/>
+    </svg>
+    <span class="logo-txt">Tips <span>UMKM</span></span>
+  </a>
+  <div class="nav-mid">
+    <a href="#direktori" class="nl">Direktori</a>
+    <a href="#tips" class="nl">Tips & Panduan</a>
+    <a href="#komunitas" class="nl">Komunitas</a>
+  </div>
+  <div class="nav-right">
+    <a href="#daftar" class="btn-outline">Daftarkan UMKM</a>
+    <a href="#direktori" class="btn-cta">Mulai Sekarang →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill"><div class="blink"></div> Portal UMKM Lokal · Bekasi & Sekitarnya</div>
+      <h1 class="hero-h">Baru di kota?<br>Semua yang lo<br>butuhin ada <span class="hi">di sini.</span></h1>
+      <p class="hero-desc">Direktori UMKM lokal terpercaya + tips digitalisasi usaha. Buat perantau yang baru nyampe, dan pelaku UMKM yang mau naik level.</p>
+      <div class="hero-btns">
+        <a href="#direktori" class="btn-hero">🔍 Cari UMKM Lokal</a>
+        <a href="#tips" class="btn-hero-ghost">📚 Baca Tips Gratis</a>
+      </div>
+      <div class="proof">
+        <div class="avs">
+          <div class="av">😊</div><div class="av">🧑</div><div class="av">👩</div><div class="av">👨</div>
+        </div>
+        <p class="proof-t"><strong>12.000+</strong> perantau & pelaku UMKM bergabung</p>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hc">
+        <div class="hc-top">
+          <div class="hc-icon">☕</div>
+          <span class="hc-tag">Supplier Pilihan</span>
+        </div>
+        <h4>Kopikomplit Nusantara</h4>
+        <p>Supplier biji kopi premium, kirim ke seluruh Indonesia.</p>
+        <div class="hc-meta"><span>📍 Jogja</span><span>⭐ 4.9</span><span>🚚 Nasional</span></div>
+      </div>
+      <div class="hc">
+        <div class="hc-top">
+          <div class="hc-icon">🗺️</div>
+          <span class="hc-tag">Tips Terbaru</span>
+        </div>
+        <h4>Cara Daftar Google Maps Gratis</h4>
+        <p>Usaha lo belum muncul di Google? Panduan 10 menit ini jawabannya.</p>
+        <div class="hc-meta"><span>⏱ 5 menit baca</span><span>Feb 2025</span></div>
+      </div>
+      <div class="stats-row">
+        <div class="si"><div class="sn">500<span>+</span></div><div class="sl">UMKM</div></div>
+        <div class="si"><div class="sn">48</div><div class="sl">Artikel</div></div>
+        <div class="si"><div class="sn">12<span>k</span></div><div class="sl">Pembaca</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIREKTORI -->
+<section id="direktori">
+  <div class="wrap">
+    <p class="eyebrow">Direktori UMKM</p>
+    <h2 class="sh2">Temukan usaha lokal<br>di dekat lo</h2>
+    <p class="sdesc">Database UMKM yang dikurasi. Cari berdasarkan kategori atau kota.</p>
+
+    <div class="search-row">
+      <input type="text" class="si-input" id="sInput" placeholder="Cari katering, bengkel, konveksi..." oninput="filterCards()">
+      <button class="si-btn" onclick="filterCards()">Cari</button>
+    </div>
+
+    <div class="chips">
+      <button class="chip on" onclick="setCat('semua',this)">Semua</button>
+      <button class="chip" onclick="setCat('kuliner',this)">🍜 Kuliner</button>
+      <button class="chip" onclick="setCat('jasa',this)">🔧 Jasa</button>
+      <button class="chip" onclick="setCat('supplier',this)">📦 Supplier</button>
+      <button class="chip" onclick="setCat('fashion',this)">👗 Fashion</button>
+      <button class="chip" onclick="setCat('digital',this)">💻 Digital</button>
+    </div>
+
+    <div class="ugrid" id="ugrid">
+      <div class="ucard" data-cat="supplier">
+        <div class="ucard-top"><div class="u-ico">☕</div><span class="u-stars">⭐ 4.9</span></div>
+        <div class="u-cat">Supplier</div>
+        <div class="u-name">Kopikomplit Nusantara</div>
+        <div class="u-desc">Supplier biji kopi premium dari Nusantara. Grosir untuk kafe, warung, dan usaha F&B.</div>
+        <div class="ucard-bot"><span class="u-loc">📍 Jogja · Kirim Nasional</span><a href="#" class="u-link">Lihat →</a></div>
+      </div>
+      <div class="ucard" data-cat="kuliner">
+        <div class="ucard-top"><div class="u-ico">🍱</div><span class="u-stars">⭐ 4.7</span></div>
+        <div class="u-cat">Kuliner</div>
+        <div class="u-name">Katering Bu Siti</div>
+        <div class="u-desc">Katering rumahan menu Jawa & Sunda. Acara kantor, arisan, hajatan. Min. 30 porsi.</div>
+        <div class="ucard-bot"><span class="u-loc">📍 Bekasi Barat</span><a href="#" class="u-link">Lihat →</a></div>
+      </div>
+      <div class="ucard" data-cat="jasa">
+        <div class="ucard-top"><div class="u-ico">🔧</div><span class="u-stars">⭐ 4.8</span></div>
+        <div class="u-cat">Jasa</div>
+        <div class="u-name">Las & Canopy Pak Budi</div>
+        <div class="u-desc">Jasa las pagar, canopy, teralis, dan konstruksi besi. Pengerjaan rapi, harga bersaing.</div>
+        <div class="ucard-bot"><span class="u-loc">📍 Bekasi Timur</span><a href="#" class="u-link">Lihat →</a></div>
+      </div>
+      <div class="ucard" data-cat="fashion">
+        <div class="ucard-top"><div class="u-ico">👕</div><span class="u-stars">⭐ 4.6</span></div>
+        <div class="u-cat">Fashion</div>
+        <div class="u-name">Konveksi Seragam Jaya</div>
+        <div class="u-desc">Seragam kerja, kaos komunitas, pakaian promosi. Sablon & bordir tersedia. Min. 12 pcs.</div>
+        <div class="ucard-bot"><span class="u-loc">📍 Bekasi Selatan</span><a href="#" class="u-link">Lihat →</a></div>
+      </div>
+      <div class="ucard" data-cat="kuliner">
+        <div class="ucard-top"><div class="u-ico">🍚</div><span class="u-stars">⭐ 4.9</span></div>
+        <div class="u-cat">Kuliner</div>
+        <div class="u-name">Nasi Uduk Mpok Ani</div>
+        <div class="u-desc">Nasi uduk Betawi legendaris sejak 2005. Lauk lengkap, harga ramah kantong. Buka pagi–siang.</div>
+        <div class="ucard-bot"><span class="u-loc">📍 Bekasi Kota</span><a href="#" class="u-link">Lihat →</a></div>
+      </div>
+      <div class="ucard" data-cat="digital">
+        <div class="ucard-top"><div class="u-ico">📸</div><span class="u-stars">⭐ 4.8</span></div>
+        <div class="u-cat">Digital</div>
+        <div class="u-name">Foto Produk & Desain Studio</div>
+        <div class="u-desc">Foto produk, desain menu, dan konten medsos untuk UMKM. Paket terjangkau, hasil pro.</div>
+        <div class="ucard-bot"><span class="u-loc">📍 Bekasi</span><a href="#" class="u-link">Lihat →</a></div>
+      </div>
+    </div>
+
+    <div class="dir-cta">
+      <a href="#daftar" class="btn-outline" style="font-size:14px">+ Daftarkan UMKM Lo — Gratis</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TIPS -->
+<section id="tips" class="tips-section">
+  <div class="wrap">
+    <p class="eyebrow">Tips & Panduan</p>
+    <h2 class="sh2">Semua yang lo butuh<br>untuk tumbuh</h2>
+    <p class="sdesc">Panduan praktis, to the point, dan gratis. Langsung bisa dipraktekin hari ini.</p>
+
+    <div class="tgrid">
+      <a href="#" class="tfeat" onclick="toggleDrawer(event)">
+        <div>
+          <div class="tf-badge">🔥 Paling Dicari</div>
+          <h3>Usaha Lo Belum Ada di Google Maps? Ini Cara Daftarnya — Gratis!</h3>
+          <p>Lo kehilangan calon pelanggan setiap hari kalau usaha lo belum muncul di Google. Panduan 10 menit ini bisa mengubah itu.</p>
+        </div>
+        <div class="tf-em">🗺️</div>
+      </a>
+      <a href="#" class="tcard">
+        <div class="tc-em">🛵</div>
+        <div class="tc-tag">GoFood & GrabFood</div>
+        <h3>Cara Daftar GoFood dan GrabFood untuk UMKM Kuliner</h3>
+        <p>Langkah demi langkah masuk platform ojol buat tambah omzet.</p>
+        <div class="tc-meta"><span>⏱ 5 menit</span><span>Feb 2025</span></div>
+      </a>
+      <a href="#" class="tcard">
+        <div class="tc-em">🛍️</div>
+        <div class="tc-tag">E-Commerce</div>
+        <h3>Mulai Jualan di Shopee: Panduan Pemula Step by Step</h3>
+        <p>Dari buat akun seller sampai upload produk pertama.</p>
+        <div class="tc-meta"><span>⏱ 7 menit</span><span>Jan 2025</span></div>
+      </a>
+      <a href="#" class="tcard">
+        <div class="tc-em">☕</div>
+        <div class="tc-tag">Supplier</div>
+        <h3>Rekomendasi Supplier Kopi Nusantara untuk Usaha F&B Lo</h3>
+        <p>Mau buka kafe? Ini daftar supplier kopi grosir terpercaya.</p>
+        <div class="tc-meta"><span>⏱ 4 menit</span><span>Feb 2025</span></div>
+      </a>
+    </div>
+
+    <div class="drawer" id="drawer">
+      <div class="drawer-pad">
+        <h2>🗺️ Usaha Lo Belum Ada di Google Maps? Ini Cara Daftarnya — Gratis!</h2>
+        <div class="drawer-by">TIPSUMKM · Tips Digitalisasi · 5 menit baca</div>
+        <div class="drawer-body">
+          <p>Lo punya warung, jasa, atau usaha kecil-kecilan — tapi kalau orang ketik nama usaha lo di Google, nggak muncul apa-apa? Artinya lo kehilangan calon pelanggan setiap harinya.</p>
+          <p><strong>Kabar baiknya: daftarnya gratis dan bisa selesai dalam 10 menit.</strong></p>
+          <div class="step"><strong>Langkah 1 — Buka Google Business Profile</strong><span>Pergi ke <em>business.google.com</em> atau buka Google Maps → klik "Tambahkan bisnis Anda."</span></div>
+          <div class="step"><strong>Langkah 2 — Isi Informasi Usaha</strong><span>Nama usaha, kategori, alamat atau area layanan, nomor telepon, dan jam operasional.</span></div>
+          <div class="step"><strong>Langkah 3 — Verifikasi Akun</strong><span>Google kirim kode via SMS atau telepon. Masukkan kodenya → usaha lo resmi terdaftar!</span></div>
+          <div class="step"><strong>Langkah 4 — Lengkapi Profil</strong><span>Tambah foto usaha, deskripsi singkat, dan link WhatsApp biar calon pelanggan bisa langsung kontak.</span></div>
+          <div class="notebox">💡 <strong>Catatan:</strong> Untuk lokasi fisik, lo perlu alamat bisnis yang valid. Usaha rumahan bisa pilih "area layanan" dan sembunyikan alamat eksak.</div>
+          <p>Setelah terdaftar, usaha lo muncul di Google Search dan Maps — gratis, 24 jam, tanpa bayar iklan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- KOMUNITAS — dark section -->
+<section id="komunitas" class="dark-section">
+  <div class="wrap">
+    <div class="feat-split">
+      <div class="feat-txt">
+        <p class="eyebrow">Komunitas</p>
+        <h2 class="sh2 sh2-white">Lo nggak sendirian<br>di kota baru.</h2>
+        <p style="color:rgba(255,255,255,0.5);font-size:16px;line-height:1.75;margin-bottom:28px">TIPSUMKM bukan cuma portal — ini komunitas. Perantau dan pelaku UMKM saling support, berbagi info, dan tumbuh bareng.</p>
+        <div class="feat-list">
+          <div class="feat-item">
+            <div class="feat-dot">🎓</div>
+            <div class="feat-item-txt"><strong style="color:var(--white)">Workshop & Webinar Gratis</strong><span style="color:rgba(255,255,255,0.45)">Narasumber praktisi UMKM berpengalaman. Online, bisa diakses dari mana saja.</span></div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot">💬</div>
+            <div class="feat-item-txt"><strong style="color:var(--white)">Grup Diskusi Aktif</strong><span style="color:rgba(255,255,255,0.45)">Tanya jawab, sharing pengalaman, dan rekomendasi antar anggota.</span></div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-dot">🔗</div>
+            <div class="feat-item-txt"><strong style="color:var(--white)">Networking & Kolaborasi</strong><span style="color:rgba(255,255,255,0.45)">Ketemu UMKM lain, supplier, dan calon partner bisnis yang relevan.</span></div>
+          </div>
+        </div>
+        <a href="#" class="btn-cta" style="font-size:15px;padding:13px 28px">Gabung Komunitas Gratis →</a>
+      </div>
+
+      <div class="testis">
+        <div class="testi" style="background:var(--dark2);border-color:rgba(255,255,255,0.07)">
+          <div class="testi-head">
+            <div class="tav" style="background:var(--dark3)">👨</div>
+            <div><div class="t-name" style="color:var(--white)">Budi Santoso</div><div class="t-role">Pemilik Warung Kopi · Bekasi</div></div>
+          </div>
+          <p class="t-quote" style="color:rgba(255,255,255,0.6)">"Setelah baca tips TIPSUMKM, warung kopi gua akhirnya muncul di Google Maps. Pelanggan baru dari luar kompleks mulai dateng!"</p>
+        </div>
+        <div class="testi" style="background:var(--dark2);border-color:rgba(255,255,255,0.07)">
+          <div class="testi-head">
+            <div class="tav" style="background:var(--dark3)">👩</div>
+            <div><div class="t-name" style="color:var(--white)">Sari Dewi</div><div class="t-role">Perantau dari Surabaya</div></div>
+          </div>
+          <p class="t-quote" style="color:rgba(255,255,255,0.6)">"Baru pindah ke Bekasi, bingung mau cari apa di mana. Direktori TIPSUMKM beneran bantu banget, nemu katering enak dan murah."</p>
+        </div>
+        <div class="testi" style="background:var(--dark2);border-color:rgba(255,255,255,0.07)">
+          <div class="testi-head">
+            <div class="tav" style="background:var(--dark3)">🧑</div>
+            <div><div class="t-name" style="color:var(--white)">Rizky Pratama</div><div class="t-role">Konveksi Seragam · Bekasi</div></div>
+          </div>
+          <p class="t-quote" style="color:rgba(255,255,255,0.6)">"Daftar di direktori TIPSUMKM dan langsung dapat 3 inquiry dalam seminggu pertama. Nggak nyangka secepat itu!"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div style="padding:0 48px;margin:72px auto">
+  <div class="cta-banner">
+    <div>
+      <h2>UMKM lo belum terdaftar?<br>Masuk direktori sekarang.</h2>
+      <p>Gratis. Biar lebih banyak orang di kota lo yang tau usaha lo ada dan bisa dihubungi.</p>
+    </div>
+    <a href="#daftar" class="btn-dark-cta">Daftarkan UMKM Lo →</a>
+  </div>
+</div>
+
+<!-- FORM -->
+<section id="daftar" class="form-section">
+  <div class="wrap">
+    <p class="eyebrow">Daftarkan UMKM</p>
+    <h2 class="sh2">Masukkan usaha lo<br>ke direktori kami</h2>
+    <p class="sdesc">Gratis. Isi form di bawah dan tim kami akan segera menghubungi lo.</p>
+
+    <div class="form-card">
+      <div class="frow">
+        <div class="fg"><label>Nama Usaha *</label><input type="text" placeholder="Contoh: Katering Bu Siti"></div>
+        <div class="fg"><label>Nama Pemilik *</label><input type="text" placeholder="Nama lengkap Anda"></div>
+        <div class="fg">
+          <label>Kategori *</label>
+          <select><option value="">Pilih kategori...</option><option>🍜 Kuliner & F&B</option><option>🔧 Jasa & Servis</option><option>📦 Supplier & Distributor</option><option>👗 Fashion & Konveksi</option><option>💻 Digital & Kreatif</option><option>🏥 Kesehatan & Kecantikan</option><option>Lainnya</option></select>
+        </div>
+        <div class="fg"><label>Kota/Wilayah *</label><input type="text" placeholder="Contoh: Bekasi Barat"></div>
+        <div class="fg"><label>Nomor WhatsApp *</label><input type="tel" placeholder="08xxxxxxxxxx"></div>
+        <div class="fg"><label>Instagram / TikTok</label><input type="text" placeholder="@namaakun (opsional)"></div>
+        <div class="fg full"><label>Deskripsi Singkat *</label><textarea placeholder="Ceritakan produk/jasa, keunggulan, dan area layanan usaha lo..."></textarea></div>
+      </div>
+      <button class="btn-submit" onclick="submitForm()">🚀 Daftarkan Usaha Saya</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="logo-txt">Tips <span>UMKM</span></span>
+        <p>Portal informasi dan direktori UMKM lokal Indonesia. Untuk perantau yang baru datang, dan UMKM yang ingin ditemukan.</p>
+      </div>
+      <div class="fcol">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#direktori">Direktori UMKM</a></li>
+          <li><a href="#tips">Tips & Panduan</a></li>
+          <li><a href="#komunitas">Komunitas</a></li>
+          <li><a href="#daftar">Daftarkan UMKM</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Konten</h5>
+        <ul>
+          <li><a href="#">Cara Daftar Google Maps</a></li>
+          <li><a href="#">Tips GoFood & GrabFood</a></li>
+          <li><a href="#">Supplier Kopi Nusantara</a></li>
+          <li><a href="#">Digitalisasi UMKM</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Info</h5>
+        <ul>
+          <li><a href="#">Tentang TIPSUMKM</a></li>
+          <li><a href="#">Iklan & Kerjasama</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2025 TIPSUMKM · Dibuat untuk UMKM Indonesia 🇮🇩</span>
+      <div class="socs">
+        <a href="#" class="soc">📱</a>
+        <a href="#" class="soc">📸</a>
+        <a href="#" class="soc">▶️</a>
+        <a href="#" class="soc">👥</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+let cat='semua';
+function setCat(c,el){cat=c;document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));el.classList.add('on');filterCards()}
+function filterCards(){
+  const q=document.getElementById('sInput').value.toLowerCase();
+  document.querySelectorAll('.ucard').forEach(card=>{
+    const ok=(cat==='semua'||card.dataset.cat===cat)&&(!q||card.textContent.toLowerCase().includes(q));
+    card.style.display=ok?'':'none';
+  });
+}
+function toggleDrawer(e){
+  e.preventDefault();
+  const d=document.getElementById('drawer');
+  d.classList.toggle('open');
+  if(d.classList.contains('open'))setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'nearest'}),150);
+}
+function submitForm(){alert('✅ Makasih! Usaha lo segera kami tambahkan ke direktori.\n\nTim kami akan WhatsApp lo dalam 1–2 hari kerja.')}
+</script>
+</body>
+</html>
